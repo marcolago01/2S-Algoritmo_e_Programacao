@@ -10,23 +10,23 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese");
 	int numero;
-	int primo = 1;
-	int teste;
+	int primo = 0;
 
 	cout << "Insira um número: ";
 	cin >> numero;
 
 	for (int contador = 2; contador <= numero; contador++) {
-		for (int multiplicador = 2; multiplicador <= contador; multiplicador++) {
-			if (contador % multiplicador == 0 && contador / multiplicador != 1) {
-				primo == 0;
+		for (int multiplicador = 1; multiplicador <= contador; multiplicador++) {
+			if ( contador % multiplicador == 0){
+				primo++;
+			}
+			if (primo > 2) {
+				break;
 			}
 		}
-		if (primo == 1) {
+		if (primo == 2) {
 			cout << contador << " ";
 		}
-		else {
-			primo = 1;
-		}
+		primo = 0;
 	}
 }
