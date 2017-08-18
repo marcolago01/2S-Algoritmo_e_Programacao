@@ -10,19 +10,19 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese");
 	int numero;
+	int pares=0, impares=0;
 
 	cout << "Insira um número: ";
 	cin >> numero;
 
-	if (numero % 2 == 0) {
-		for (int contador = 0; contador < numero; contador = contador + 2) {
-			cout << contador << "  ";
+	for (int contador = 0; contador <= numero; contador++) {
+		if (contador % 2 == 0) {
+			pares++;
+		}
+		else {
+			impares++;
 		}
 	}
-	else {
-		for (int contador = 1; contador < numero; contador = contador + 2) {
-			cout << contador << "  ";
-		}
-	}
+	cout << "Pares: " << pares << "\nImpares: " << impares;
 }
 

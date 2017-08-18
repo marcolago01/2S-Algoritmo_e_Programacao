@@ -10,15 +10,23 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese");
 	int numero;
-	bool teste
+	int primo = 1;
+	int teste;
 
 	cout << "Insira um número: ";
 	cin >> numero;
 
-	for (int contador = numero; contador <= numero; contador--) {
-		if (numero % contador != 1 && numero % contador != 2) {
-			teste = true;
+	for (int contador = 2; contador <= numero; contador++) {
+		for (int multiplicador = 2; multiplicador <= contador; multiplicador++) {
+			if (contador % multiplicador == 0 && contador / multiplicador != 1) {
+				primo == 0;
+			}
+		}
+		if (primo == 1) {
+			cout << contador << " ";
+		}
+		else {
+			primo = 1;
 		}
 	}
-
 }
