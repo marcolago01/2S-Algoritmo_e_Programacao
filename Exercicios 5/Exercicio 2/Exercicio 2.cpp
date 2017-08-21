@@ -16,6 +16,7 @@ int main()
 	int lados;
 
 	//solicitando quantos lados
+	cout << "Insira a quantidade de lados: ";
 	cin >> lados;
 
 	//exibi o resultado dos lados informados.
