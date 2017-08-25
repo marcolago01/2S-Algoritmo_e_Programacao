@@ -24,12 +24,12 @@ sua ordenação será crescente, ao contrário implemente ordenação decrescente
 void bubbleSort(int vetor[], int tamanho, bool ordenacaoCrescente) {
 	//se verdadeiro, organizar em forma crescente
 	if (ordenacaoCrescente) {
-		for (int repeticao = 0; repeticao < tamanho - 1; repeticao++) {
+		for (int repeticao = 0; repeticao < tamanho; repeticao++) {
 
-			int aux = vetor[0];		//variavel para troca de valores
+			int aux = 0;		//variavel para troca de valores
 
-			for (int posicao = 0; posicao < tamanho; posicao++) {
-				if (posicao>vetor[posicao+1]) {
+			for (int posicao = 0; posicao < tamanho - 1; posicao++) {
+				if (vetor[posicao] > vetor[posicao + 1]) {
 					aux = vetor[posicao];
 					vetor[posicao] = vetor[posicao + 1];
 					vetor[posicao + 1] = aux;
@@ -37,14 +37,15 @@ void bubbleSort(int vetor[], int tamanho, bool ordenacaoCrescente) {
 			}
 		}
 	}
+
 	//se falso, organizar de forma decrescente
 	else {
-		for (int repeticao = 0; repeticao < tamanho - 1; repeticao++) {
+		for (int repeticao = 0; repeticao < tamanho; repeticao++) {
 
-			int aux = vetor[0];		//variavel para troca de valores
+			int aux=0;		//variavel para troca de valores
 
-			for (int posicao = 0; posicao < tamanho; posicao++) {
-				if (posicao>vetor[posicao + 1]) {
+			for (int posicao = 0; posicao < tamanho-1; posicao++) {
+				if (vetor[posicao]<vetor[posicao + 1]) {
 					aux = vetor[posicao];
 					vetor[posicao] = vetor[posicao + 1];
 					vetor[posicao + 1] = aux;
@@ -54,9 +55,19 @@ void bubbleSort(int vetor[], int tamanho, bool ordenacaoCrescente) {
 	}
 
 	//Exibir o Bubble Sort organizado
-	for (int contador = 0; contador < tamanho; contador++) {
-		cout << vetor[contador] << "  ";
+	if (ordenacaoCrescente) {
+		cout << endl <<
+			"Ordenação crescente: " << endl;
 	}
+	else
+	{
+		cout << endl <<
+			"Ordenação decrescente: " << endl;
+	}
+	for (int contador = 0; contador < tamanho; contador++) {
+		cout << vetor[contador] << "\t";
+	}
+	cout << endl;
 }
 
 //Esta função deve retornar o maior elemento do vetor
@@ -165,6 +176,94 @@ int maiorValorEmMatriz(int matriz[TAMANHO_MATRIZ][TAMANHO_MATRIZ], int escopoBus
 			}
 		}
 		return maior;
+	default:
+		cout << "Opção Inválida!" << endl;
+		return 0;
+	}
+}
+
+/*
+Esta função deve retornar o menor elemento da matriz, levando em consideração as
+constantes da biblioteca
+ESCOPO_BUSCA_MATRIZ_DIAGONALPRINCIPAL
+ESCOPO_BUSCA_MATRIZ_DIAGONALSECUNDARIA
+ESCOPO_BUSCA_MATRIZ_DIAGONAIS
+ESCOPO_BUSCA_MATRIZ_COMPLETA
+*/
+int menorValorEmMatriz(int matriz[TAMANHO_MATRIZ][TAMANHO_MATRIZ], int escopoBusca) {
+	int menor;
+	bool primeiro_valor = true;	//variavel para pegar o primeiro valor para comparação
+
+	switch (escopoBusca)
+	{
+		//ESCOPO_BUSCA_MATRIZ_DIAGONALPRINCIPAL
+	case 1:
+		for (int linha = 0; linha < TAMANHO_MATRIZ; linha++) {
+			for (int coluna = 0; coluna < TAMANHO_MATRIZ; coluna++) {
+				//se a linha e coluna for igual é a diagonal principal
+				if (linha == coluna) {
+					//pegando o primeiro valor
+					if (primeiro_valor) {
+						menor = matriz[linha][coluna];
+						primeiro_valor = false;
+					}
+					if (menor > matriz[linha][coluna]) {
+						menor = matriz[linha][coluna];
+					}
+				}
+			}
+		}
+		return menor;
+		//ESCOPO_BUSCA_MATRIZ_DIAGONALSECUNDARIA
+	case 2:
+		for (int linha = 0; linha < TAMANHO_MATRIZ; linha++) {
+			for (int coluna = 0; coluna < TAMANHO_MATRIZ; coluna++) {
+				//se a soma da linha e coluna for igual ao tamanho da matriz-1
+				if (linha + coluna == TAMANHO_MATRIZ - 1) {
+					//pegando o primeiro valor
+					if (primeiro_valor) {
+						menor = matriz[linha][coluna];
+						primeiro_valor = false;
+					}
+					if (menor > matriz[linha][coluna]) {
+						menor = matriz[linha][coluna];
+					}
+				}
+			}
+		}
+		return menor;
+		//ESCOPO_BUSCA_MATRIZ_DIAGONAIS
+	case 3:
+		for (int linha = 0; linha < TAMANHO_MATRIZ; linha++) {
+			for (int coluna = 0; coluna < TAMANHO_MATRIZ; coluna++) {
+				//se a linha e coluna for igual é a diagonal principal
+				if (linha + coluna == TAMANHO_MATRIZ - 1 || linha == coluna) {
+					//pegando o primeiro valor
+					if (primeiro_valor) {
+						menor = matriz[linha][coluna];
+						primeiro_valor = false;
+					}
+					if (menor > matriz[linha][coluna]) {
+						menor = matriz[linha][coluna];
+					}
+				}
+			}
+		}
+		return menor;
+		//ESCOPO_BUSCA_MATRIZ_COMPLETA
+	case 4:
+		for (int linha = 0; linha < TAMANHO_MATRIZ; linha++) {
+			for (int coluna = 0; coluna < TAMANHO_MATRIZ; coluna++) {
+				if (primeiro_valor) {
+					menor = matriz[linha][coluna];
+					primeiro_valor = false;
+				}
+				if (menor > matriz[linha][coluna]) {
+					menor = matriz[linha][coluna];
+				}
+			}
+		}
+		return menor;
 	default:
 		cout << "Opção Inválida!" << endl;
 		return 0;
