@@ -12,14 +12,27 @@ using namespace std;
 	//2
 	//Perímetro = π * 2 * r
 
+float area(float raio);
+float perimetro(float raio);
+
 int main()
 {
-	float
-		raio,
-		PI = 3.14159,
-		area,
-		perimtro;
+	float raio;
+	cout << "Insira o raio: ";
+	cin >> raio;
 
-
+	cout << "Area: " << area(raio) << endl
+		<< "Perimetro: " << perimetro(raio) << endl;
 }
 
+float area(float raio) {
+	float PI = 3.14159;
+
+	return PI*raio;
+}
+
+float perimetro(float raio) {
+	float PI = 3.14159;
+
+	return PI * 2 * raio;
+}
