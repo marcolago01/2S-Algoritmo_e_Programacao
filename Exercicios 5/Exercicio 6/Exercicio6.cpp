@@ -22,6 +22,14 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese");
 	int opcao = 0;
+
+	const int
+		ADICAO = 1,
+		SUBTRACAO = 2,
+		MULTIPLICACAO = 3,
+		DIVISAO = 4,
+		SAIR = 5;
+
 	float
 		numero1,
 		numero2;
@@ -35,6 +43,9 @@ int main()
 			<< "		5-Sair" << endl
 			;
 		cin >> opcao;
+		if (opcao == 5) {
+			break;
+		}
 		cout << endl 
 			<< "Insira 2 numeros para o calculo"
 			<< endl
@@ -42,10 +53,19 @@ int main()
 		cin >> numero1 >> numero2;
 
 		switch (opcao) {
-		case 1:
-			cout << "Resultado da Adição: " << soma(numero1, numero2);
+		case ADICAO:
+			cout << "Resultado da Adição: " << soma(numero1, numero2) << endl;
 			break;
+		case SUBTRACAO:
+			cout << "Resultado da Subtração: " << subtracao(numero1, numero2) << endl;
+			break;
+		case MULTIPLICACAO:
+			cout << "Resultado da Multiplicação: " << multiplicacao(numero1, numero2) << endl;
+			break;
+		case DIVISAO:
+			cout << "Resultado da Divisão: " << divisao(numero1, numero2) << endl;
 		}
+
 	} while (opcao != 5);
 }
 

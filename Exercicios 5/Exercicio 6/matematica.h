@@ -1,6 +1,6 @@
 #pragma once
-#ifndef matematica.h
-#define matematica.h
+#ifndef matematica_h
+#define matematica_h
 
 #include <iostream>
 using namespace std;
