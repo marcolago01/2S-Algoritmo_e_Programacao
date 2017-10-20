@@ -1,3 +1,4 @@
+////////////////INCOMPLETO/////////////////////////
 /*
 Implemente uma biblioteca para trabalhar com arrays
 de qualquer tipo. Ela deve conter as funções:

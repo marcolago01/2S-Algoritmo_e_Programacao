@@ -17,7 +17,7 @@ void converterIntBinario(int num) {
 
 int main()
 {
-	converterIntBinario(64);
+	converterIntBinario(31);
 	cout << endl;
 }
 

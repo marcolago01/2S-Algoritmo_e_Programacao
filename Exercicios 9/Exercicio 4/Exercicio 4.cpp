@@ -15,8 +15,8 @@ int somaVetor(int tamanho, int vetor[]) {
 
 int main()
 {
-	const int TAMANHO = 3;
-	int vetor[TAMANHO] = { 5,5,2 };
+	const int TAMANHO = 4;
+	int vetor[TAMANHO] = { 5,5,5,1 };
 
 	cout << somaVetor(TAMANHO - 1, vetor) << endl;
 }
