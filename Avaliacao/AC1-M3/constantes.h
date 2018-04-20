@@ -1,0 +1,33 @@
+#pragma once
+#ifndef CONSTANTES_H
+#define CONSTANTES_H
+
+enum MENU {
+	ENTRAR =1,
+	CRIARUSUARIO=2,
+	SAIR=3
+};
+
+enum MES
+{
+	JANEIRO = 1,
+	FEVEREIRO = 2,
+	MARCO = 3,
+	ABRIL = 4,
+	MAIO = 5,
+	JUNHO = 6,
+	JULHO = 7,
+	AGOSTO = 8,
+	SETEMBRO = 9,
+	OUTRUBRO = 10,
+	NOVEMBRO = 11,
+	DEZEMBRO = 12
+};
+
+enum GENERO {
+	MASCULINO=1,
+	FEMININO=2,
+	NAOINFORMAR=3
+};
+
+#endif
